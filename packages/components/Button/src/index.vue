@@ -1,5 +1,47 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import constants from '../../constants';
+import './index.scss';
 defineEmits(['click']);
+const props = defineProps({
+    size: {
+        type: String,
+        value: constants.componentSizes
+    },
+    type: {
+        type: String,
+        values: constants.types,
+        default: ''
+    },
+    plain: Boolean,
+    round: Boolean,
+    slant: Boolean,
+    circle: Boolean,
+    disabled: Boolean,
+    color: {
+        type: String,
+        default: '#ECEFF1'
+    }
+});
+const styleClass = computed(() => {
+    return {
+        [`j_button_${props.type}`]: props.type,
+        is_plain: props.plain,
+        is_round: props.round,
+        is_slant: props.slant,
+        is_circle: props.circle,
+        is_disabled: props.disabled,
+        [`j-button-${props.size}`]: props.size
+    };
+});
+const buttonStyle = computed(() => {
+    return {
+        j_button: {
+            '--j-button-bg-color': props.color,
+            '--j-button-border-color': props.color
+        }
+    };
+});
 </script>
 <script lang="ts">
 export default {
@@ -8,28 +50,7 @@ export default {
 </script>
 
 <template>
-    <button class="j_button" @click="$emit('click', $event)">
+    <button class="j_button" :class="styleClass" :style="buttonStyle" @click="$emit('click', $event)">
         <slot></slot>
     </button>
 </template>
-
-<style scoped>
-.j_button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: border-color 0.25s;
-}
-.j_button:hover {
-    border-color: #646cff;
-}
-.j_button:focus,
-.j_button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-}
-</style>
