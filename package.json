@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
+    "build:components": "pnpm --filter=@unclejia/components run build",
     "preview": "vite preview"
   },
   "lint-staged": {

@@ -15,7 +15,7 @@
     --j-button-disabled-border-color: #e4e7ed;
     --el-button-size: 32px;
     --j-button-border: 1px solid var(--j-button-border-color);
-    &.j_button_primary {
+    &.j_button-primary {
         --j-button-text-color: #fff;
         --j-button-bg-color: var(--j-color-primary);
         --j-button-border-color: var(--j-color-primary);
@@ -34,7 +34,7 @@
             --j-button-hover-bg-color: var(--j-color-primary);
         }
     }
-    &.j_button_success {
+    &.j_button-success {
         --j-button-text-color: #fff;
         --j-button-bg-color: var(--j-color-success);
         --j-button-border-color: var(--j-color-success);
@@ -53,7 +53,7 @@
             --j-button-hover-bg-color: var(--j-color-success);
         }
     }
-    &.j_button_warning {
+    &.j_button-warning {
         --j-button-text-color: #fff;
         --j-button-bg-color: var(--j-color-warning);
         --j-button-border-color: var(--j-color-warning);
@@ -72,7 +72,7 @@
             --j-button-hover-bg-color: var(--j-color-warning);
         }
     }
-    &.j_button_error {
+    &.j_button-error {
         --j-button-text-color: #fff;
         --j-button-bg-color: var(--j-color-error);
         --j-button-border-color: var(--j-color-error);
@@ -113,14 +113,17 @@
     cursor: pointer;
     transition: all 0.25s;
     position: relative;
-    &:hover,
-    &:active, 
-    &:focus,
-    &:focus-visible {
-        color: var(--j-button-hover-text-color);
-        border-color: var(--j-button-hover-border-color);
-        background-color: var(--j-button-hover-bg-color);
-        outline: 0;
+    z-index: 0;
+    &:not([class*=j-button-hover-]) {
+        &:hover,
+        &:active, 
+        &:focus,
+        &:focus-visible {
+            color: var(--j-button-hover-text-color);
+            border-color: var(--j-button-hover-border-color);
+            background-color: var(--j-button-hover-bg-color);
+            outline: 0;
+        }
     }
     &.is_round {
         border-radius: var(--j-border-radius-round);
@@ -128,6 +131,10 @@
     &.is_slant {
         border: transparent;
         background-color: transparent;
+        &:hover {
+            border: transparent;
+            background-color: transparent;
+        }
         &::before {
             position: absolute;
             top: 0;
@@ -165,5 +172,83 @@
     &.j-button-large {
         --el-button-size: 40px;
         padding: 12px 19px;
+    }
+    &.j-button-hover-fill {
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: transform .15s ease-out,opacity .15s ease-out;
+            transform: scaleX(0);
+            background-color: var(--j-button-hover-bg-color);
+        }
+        &:hover::before {
+            opacity: 1;
+            transition: transform .2s ease-in,opacity .2s ease-in;
+            transform: scaleX(1);
+        }
+    }
+    &.j-button-hover-fill-pill {
+        overflow: hidden;
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            opacity: 0;
+            transition: transform .15s cubic-bezier(.02,.01,.47,1),opacity .15s cubic-bezier(.02,.01,.47,1);
+            transform: translate(100%,-25%) translateZ(0);
+            background-color: var(--j-button-hover-bg-color);
+        }
+        &:hover::before {
+            opacity: 1;
+            transition: transform .2s cubic-bezier(.02,.01,.47,1),opacity .2s cubic-bezier(.02,.01,.47,1);
+            transform: translate3d(50%,0,0) scale(.9);
+        }
+        &:hover::after {
+            opacity: .5;
+            transition: transform .2s cubic-bezier(.02,.01,.47,1) .05s,opacity .2s cubic-bezier(.02,.01,.47,1) .05s;
+            transform: translate(50%) scale(1.1);
+        }
+    }
+    &.j-button-hover-fill-unite {
+        overflow: hidden;
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            opacity: 0;
+            transition: transform .15s cubic-bezier(.02,.01,.47,1),opacity .15s cubic-bezier(.02,.01,.47,1);
+            background-color: var(--j-button-hover-bg-color);
+        }
+        &::before {
+            transform: translate3d(-110%,-10%,0) skewX(-20deg);
+        }
+        &::after {
+            transform: translate3d(110%,-10%,0) skewX(-20deg);
+        }
+        &:hover::before {
+            opacity: 1;
+            transition: transform .25s cubic-bezier(.02,.01,.47,1),opacity .25s cubic-bezier(.02,.01,.47,1);
+            transform: translate3d(-50%,-10%,0) skewX(-20deg);
+        }
+        &:hover::after {
+            opacity: .8;
+            transition: transform .25s cubic-bezier(.02,.01,.47,1),opacity .25s cubic-bezier(.02,.01,.47,1);
+            transform: translate3d(50%,-10%,0) skewX(-20deg);
+        }
     }
 }

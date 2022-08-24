@@ -11,7 +11,7 @@ const props = defineProps({
     type: {
         type: String,
         values: constants.types,
-        default: ''
+        default: 'default'
     },
     plain: Boolean,
     round: Boolean,
@@ -21,17 +21,23 @@ const props = defineProps({
     color: {
         type: String,
         default: '#ECEFF1'
+    },
+    hoverType: {
+        type: String,
+        value: constants.hoverTypes,
+        default: ''
     }
 });
 const styleClass = computed(() => {
     return {
-        [`j_button_${props.type}`]: props.type,
+        [`j_button-${props.type}`]: props.type,
         is_plain: props.plain,
         is_round: props.round,
         is_slant: props.slant,
         is_circle: props.circle,
         is_disabled: props.disabled,
-        [`j-button-${props.size}`]: props.size
+        [`j-button-${props.size}`]: props.size,
+        [`j-button-hover-${props.hoverType}`]: props.hoverType
     };
 });
 const buttonStyle = computed(() => {

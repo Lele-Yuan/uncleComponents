@@ -2,11 +2,15 @@
   "name": "@unclejia/components",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib/unclejia-components.es.js",
+  "types": "./lib/types/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vue-tsc && vite build"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "peerDependencies": {
+    "vue": "^3.2.37"
+  }
 }
