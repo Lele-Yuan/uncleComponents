@@ -4,11 +4,12 @@ import vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [vue()],
-    resolve: {
-        alias: {
+    "base": './',
+    "plugins": [vue()],
+    "resolve": {
+        "alias": {
             '@': resolve(__dirname, './src'),
-            assets: resolve(__dirname, 'src/assets')
+            "assets": resolve(__dirname, 'src/assets')
         }
     }
 });

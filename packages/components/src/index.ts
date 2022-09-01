@@ -6,13 +6,12 @@ const components = {
 };
 const UnclePlugin: Plugin = {
     install(app: App) {
-        // @ts-ignore
         app.use(JButton);
-        // Object.values(components).forEach(item => {
-        //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //     // @ts-ignore
-        //     app.use(item);
-        // });
+        Object.values(components).forEach(item => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            app.use(item);
+        });
     }
 };
 
