@@ -2,7 +2,7 @@
     <div class="button-example">buttons example</div>
     <div class="example-wrap">
         <div class="example-box">
-            <div class="title-wrapper">基本用法</div>
+            <div class="title-wrapper">Basic</div>
             <div class="mb-4">
                 <j-button>Default</j-button>
                 <j-button type="primary">Primary</j-button>
@@ -12,13 +12,13 @@
             </div>
             <div class="mb-4">
                 <j-button plain>Plain</j-button>
-                <j-button plain type="primary">Primary</j-button>
+                <j-button plain type="primary" @click="handleClick">Primary</j-button>
                 <j-button plain type="success">Success</j-button>
                 <j-button plain type="warning">Warning</j-button>
                 <j-button plain type="error">Error</j-button>
             </div>
             <div class="mb-4">
-                <j-button disabled>Disabled</j-button>
+                <j-button disabled @click="handleClick">Disabled</j-button>
                 <j-button disabled type="primary">Primary</j-button>
                 <j-button disabled type="success">Success</j-button>
                 <j-button disabled type="warning">Warning</j-button>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="example-box">
-            <div class="title-wrapper">形状</div>
+            <div class="title-wrapper">Sharp</div>
             <div class="mb-4">
                 <j-button round>Round</j-button>
                 <j-button round type="primary">Primary</j-button>
@@ -50,11 +50,16 @@
             </div>
         </div>
         <div class="example-box">
-            <div class="title-wrapper">尺寸</div>
+            <div class="title-wrapper">Size</div>
             <div class="mb-4">
                 <j-button size="large">large Button</j-button>
                 <j-button size="default">default Button</j-button>
                 <j-button size="small">small Button</j-button>
+            </div>
+            <div class="mb-4">
+                <j-button slant type="primary" plain size="large">large Button</j-button>
+                <j-button slant type="primary" plain size="default">default Button</j-button>
+                <j-button slant type="primary" plain size="small">small Button</j-button>
             </div>
             <div class="mb-4">
                 <j-button slant type="primary" size="large">large Button</j-button>
@@ -66,20 +71,29 @@
             <div class="title-wrapper">Hover</div>
             <div class="mb-4">
                 <j-button hover-type="fill">default fill</j-button>
+                <j-button type="primary" plain hover-type="fill">primary fill</j-button>
                 <j-button type="primary" hover-type="fill">primary fill</j-button>
+                <j-button type="success" plain hover-type="fill">primary fill</j-button>
             </div>
             <div class="mb-4">
                 <j-button hover-type="fill-pill">default fill-pill</j-button>
+                <j-button type="primary" plain hover-type="fill-pill">primary fill-pill</j-button>
                 <j-button type="primary" hover-type="fill-pill">primary fill-pill</j-button>
+                <j-button type="success" plain hover-type="fill-pill">primary fill-pill</j-button>
             </div>
             <div class="mb-4">
                 <j-button hover-type="fill-unite">default fill-unite</j-button>
+                <j-button type="primary" plain hover-type="fill-unite">primary fill-unite</j-button>
                 <j-button type="primary" hover-type="fill-unite">primary fill-unite</j-button>
+                <j-button type="success" plain hover-type="fill-unite">primary fill-unite</j-button>
             </div>
         </div>
     </div>
 </template>
 <script lang="ts" setup>
+const handleClick = () => {
+    console.log('handleClick');
+};
 </script>
 
 <style lang="scss" scoped>

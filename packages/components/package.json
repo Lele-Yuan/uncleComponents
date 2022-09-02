@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
+    "sass": "^1.54.8",
     "vue": "^3.2.37"
   }
 }

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import constants from '../../constants';
+import constants from '../constants';
 import './index.scss';
-defineEmits(['click']);
+const emits = defineEmits(['click']);
 const props = defineProps({
     "size": {
         "type": String,
@@ -18,10 +18,7 @@ const props = defineProps({
     "slant": Boolean,
     "circle": Boolean,
     "disabled": Boolean,
-    "color": {
-        "type": String,
-        "default": '#ECEFF1'
-    },
+    "color": String,
     "hoverType": {
         "type": String,
         "value": constants.hoverTypes,
@@ -41,13 +38,15 @@ const styleClass = computed(() => {
     };
 });
 const buttonStyle = computed(() => {
-    return {
-        "j_button": {
-            '--j-button-bg-color': props.color,
-            '--j-button-border-color': props.color
-        }
+    return props.color && {
+        '--j-button-bg-color': props.color,
+        '--j-button-border-color': props.color
     };
 });
+const handleClick = ($event: Event) => {
+    if (props.disabled) return;
+    emits('click', $event);
+};
 </script>
 <script lang="ts">
 export default {
@@ -56,7 +55,7 @@ export default {
 </script>
 
 <template>
-    <button class="j_button" :class="styleClass" :style="buttonStyle" @click="$emit('click', $event)">
+    <button class="j_button" :class="styleClass" :style="buttonStyle" @click="handleClick">
         <slot></slot>
     </button>
 </template>

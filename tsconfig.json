@@ -8,12 +8,12 @@
       "jsx": "preserve",
       "declaration": true,
       "resolveJsonModule": true,
-      "isolatedModules": true,
+      "isolatedModules": false,
       "esModuleInterop": true,
       "lib": ["ESNext", "DOM"],
       // 忽略所有的声明文件（ *.d.ts）的类型检查
       "skipLibCheck": true
     },
-    "include": ["examples/**/*.ts", "examples/**/*.d.ts", "examples/**/*.tsx", "examples/**/*.vue"],
+    "include": ["examples/src/**/*.ts", "examples/src/**/*.d.ts", "examples/src/**/*.tsx", "examples/src/**/*.vue"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

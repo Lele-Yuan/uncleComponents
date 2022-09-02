@@ -1,5 +1,5 @@
 pnpm run build
-cd dist
+cd examples/dist
 
 # 提交到本地仓库
 git init
