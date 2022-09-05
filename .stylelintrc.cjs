@@ -10,8 +10,8 @@ module.exports = {
 		}
 	],
 	"ignoreFiles": [
-		"dist/**",
-		"**/lib/*"
+		"**/dist/**",
+		"**/lib/**"
 	],
 	"rules": {
 	}

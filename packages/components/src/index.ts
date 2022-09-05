@@ -1,8 +1,10 @@
 import { App, Plugin } from 'vue';
 import JButton from './Button';
+import JIcon from './Icon';
 // import './theme/css-var.css';
 const components = {
-    JButton
+    JButton,
+    JIcon
 };
 const UnclePlugin: Plugin = {
     install(app: App) {
@@ -18,3 +20,4 @@ const UnclePlugin: Plugin = {
 export default UnclePlugin;
 
 export { default as JButton } from './Button';
+export { default as JIcon } from './Icon';

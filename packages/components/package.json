@@ -1,6 +1,6 @@
 {
   "name": "@unclejia/components",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "./lib/unclejia-components.es.js",
   "types": "./lib/types/index.d.ts",
@@ -13,5 +13,8 @@
   "peerDependencies": {
     "sass": "^1.54.8",
     "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "vite": "^3.0.0"
   }
 }

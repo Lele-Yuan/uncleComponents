@@ -5,7 +5,10 @@
             <div class="title-wrapper">Basic</div>
             <div class="mb-4">
                 <j-button>Default</j-button>
-                <j-button type="primary">Primary</j-button>
+                <j-button type="primary">
+                    <j-icon />
+                    Primary
+                </j-button>
                 <j-button type="success">Success</j-button>
                 <j-button type="warning">Warning</j-button>
                 <j-button type="error">Error</j-button>

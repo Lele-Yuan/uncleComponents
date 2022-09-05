@@ -56,7 +56,7 @@ importers:
   examples:
     specifiers:
       '@vitejs/plugin-vue': ^3.0.0
-      vite: ^3.0.0
+      vite: ^3.0.5
       vue-router: ^4.1.3
     dependencies:
       vue-router: 4.1.3
@@ -65,10 +65,16 @@ importers:
       vite: 3.0.5
 
   packages/components:
-    specifiers: {}
+    specifiers:
+      vite: ^3.0.0
+    devDependencies:
+      vite: 3.0.5
 
   packages/utils:
-    specifiers: {}
+    specifiers:
+      vite: ^3.0.0
+    devDependencies:
+      vite: 3.0.5
 
 packages:
 
